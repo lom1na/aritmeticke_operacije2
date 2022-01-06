@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aritmeticke operacije 2</title>
+</head>
+<body>
+    <p>Broj 1:  <input type="text"  id="broj1"></p>
+    <p>
+        <button id="plus">+</button>
+        <button id="minus">-</button>
+        <button id="puta">*</button>
+        <button id="podeljeno">/</button>
+    </p>
+    <p>Broj 2: <input type="text" id="broj2"></p>
+    <p><b>Rezultat je :</b><span id="rezultat">0</span></p>
+
+    <script>
+        function operacije(znak){
+            const input_broj1 = document.getElementById("broj1")
+            const input_broj2 = document.getElementById("broj2")
+            const input_rezultat = document.getElementById("rezultat")
+            const broj_1 = Number(input_broj1.value)
+            const broj_2 = Number(input_broj2.value)
+            
+            let resenje = 0
+            switch(znak){
+                case "+": resenje = broj_1 + broj_2;break;
+                case "-": resenje = broj_1 - broj_2;break;
+                case "*": resenje = broj_1 * broj_2;break;
+                case "/": resenje = broj_1 / broj_2;break;
+            }
+            return input_rezultat.innerHTML = resenje
+        }
+
+        function saberi(){
+            operacije("+")
+        }
+        
+        function oduzmi(){
+            operacije("-")
+        }
+
+        function mnozi() {
+            operacije("*")
+        }
+
+        function deli() {
+            operacije("/")
+        }
+
+        const input_dugme_plus = document.getElementById("plus")
+        const input_dugme_minus = document.getElementById("minus")
+        const input_dugme_puta = document.getElementById("puta")
+        const input_dugme_podeljeno = document.getElementById("podeljeno")
+
+        input_dugme_plus.onclick = saberi
+        input_dugme_minus.onclick = oduzmi
+        input_dugme_puta.onclick = mnozi
+        input_dugme_podeljeno.onclick = deli
+    </script>
+</body>
+</html>
